@@ -1,35 +1,34 @@
 //
-// ContentView.swift : Assignment1
+//  ContentView.swift
+//  emoji-practice
 //
-// Copyright © 2023 Auburn University.
-// All Rights Reserved.
-
+//  Created by Emily Denham on 3/16/24.
+//
+import SwiftUI
 
 import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = EmojiCounterViewModel()
-    
+
     var body: some View {
         NavigationView {
             List {
-                ForEach($viewModel.counters) { $counter in
+                ForEach(viewModel.counters.indices, id: \.self) { index in  // Iterating over indices
                     HStack {
-                        Text(counter.emoji)
+                        Text(viewModel.counters[index].emoji)
                             .font(.largeTitle)
                         Spacer()
-                        Text("Counter: \(counter.count)")
+                        Text("Counter: \(viewModel.counters[index].count)")
                         Spacer()
                         Button(action: {
-                            counter.count += 1
-                            print("Count increased to \(counter.count)")
+                            viewModel.incrementCounter(at: index)  // Expecting an Int parameter
                         }) {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.green)
                         }
                         Button(action: {
-                            counter.count -= 1
-                            print("Count decreased to \(counter.count)")
+                            viewModel.decrementCounter(at: index)  // Expecting an Int parameter
                         }) {
                             Image(systemName: "minus.circle.fill")
                                 .foregroundColor(.red)
@@ -42,11 +41,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-

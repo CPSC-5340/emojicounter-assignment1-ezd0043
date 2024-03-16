@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81583E5C2BA4CAFF00572BBF /* EmojiCounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583E5B2BA4CAFF00572BBF /* EmojiCounterViewModel.swift */; };
+		81583E5E2BA4D80200572BBF /* EmojiCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583E5D2BA4D80200572BBF /* EmojiCounter.swift */; };
 		AC8A638C29B59BCD00C32694 /* Assignment1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A638B29B59BCD00C32694 /* Assignment1App.swift */; };
 		AC8A638E29B59BCD00C32694 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A638D29B59BCD00C32694 /* ContentView.swift */; };
 		AC8A639029B59BCE00C32694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC8A638F29B59BCE00C32694 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		81583E5B2BA4CAFF00572BBF /* EmojiCounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCounterViewModel.swift; sourceTree = "<group>"; };
+		81583E5D2BA4D80200572BBF /* EmojiCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCounter.swift; sourceTree = "<group>"; };
 		AC8A638829B59BCD00C32694 /* Assignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8A638B29B59BCD00C32694 /* Assignment1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment1App.swift; sourceTree = "<group>"; };
 		AC8A638D29B59BCD00C32694 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				AC8A638B29B59BCD00C32694 /* Assignment1App.swift */,
 				AC8A638D29B59BCD00C32694 /* ContentView.swift */,
 				81583E5B2BA4CAFF00572BBF /* EmojiCounterViewModel.swift */,
+				81583E5D2BA4D80200572BBF /* EmojiCounter.swift */,
 				AC8A638F29B59BCE00C32694 /* Assets.xcassets */,
 				AC8A639129B59BCE00C32694 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81583E5C2BA4CAFF00572BBF /* EmojiCounterViewModel.swift in Sources */,
+				81583E5E2BA4D80200572BBF /* EmojiCounter.swift in Sources */,
 				AC8A638E29B59BCD00C32694 /* ContentView.swift in Sources */,
 				AC8A638C29B59BCD00C32694 /* Assignment1App.swift in Sources */,
 			);
