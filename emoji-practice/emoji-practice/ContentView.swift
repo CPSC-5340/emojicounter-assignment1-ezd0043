@@ -6,38 +6,45 @@
 //
 import SwiftUI
 
-import SwiftUI
-
+// ContentView.swift
 struct ContentView: View {
-    @StateObject var viewModel = EmojiCounterViewModel()
-
+    @ObservedObject var viewModel = EmojiCounterViewModel()
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.counters.indices, id: \.self) { index in  // Iterating over indices
-                    HStack {
-                        Text(viewModel.counters[index].emoji)
-                            .font(.largeTitle)
-                        Spacer()
-                        Text("Counter: \(viewModel.counters[index].count)")
-                        Spacer()
-                        Button(action: {
-                            viewModel.incrementCounter(at: index)  // Expecting an Int parameter
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                        Button(action: {
-                            viewModel.decrementCounter(at: index)  // Expecting an Int parameter
-                        }) {
-                            Image(systemName: "minus.circle.fill")
-                                .foregroundColor(.red)
-                        }
-                    }
-                    .padding()
+                ForEach(viewModel.counters) { counter in
+                    ActionItem(emojiCounter: counter)
                 }
             }
             .navigationBarTitle("Emoji Counter", displayMode: .inline)
         }
     }
 }
+
+// ActionItem.swift
+struct ActionItem: View {
+    @ObservedObject var emojiCounter: EmojiCounterViewModel
+    
+    var body: some View {
+        HStack {
+            Text(emojiCounter.emoji)
+                .font(.largeTitle)
+            Spacer()
+            Text("Counter: \(emojiCounter.count)")
+            Spacer()
+            Button(action: {
+                emojiCounter.incrementCounter()
+            }) {
+                Image(systemName: "plus.circle.fill")
+                    .foregroundColor(.green)
+            }
+            Button(action: {
+                emojiCounter.decrementCounter()
+            }) {
+                Image(systemName: "minus.circle.fill")
+                    .foregroundColor(.red)
+            }
+        }
+        .padding()
+    }
