@@ -4,16 +4,15 @@
 // Copyright © 2023 Auburn University.
 // All Rights Reserved.
 
-
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = EmojiCounterViewModel()
+    @ObservedObject var viewModel = EmojiCounterViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach($viewModel.counters) { $counter in
+                ForEach(viewModel.counters) { counter in
                     HStack {
                         Text(counter.emoji)
                             .font(.largeTitle)
@@ -21,15 +20,13 @@ struct ContentView: View {
                         Text("Counter: \(counter.count)")
                         Spacer()
                         Button(action: {
-                            counter.count += 1
-                            print("Count increased to \(counter.count)")
+                            viewModel.incrementCounter(for: counter.id)
                         }) {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.green)
                         }
                         Button(action: {
-                            counter.count -= 1
-                            print("Count decreased to \(counter.count)")
+                            viewModel.decrementCounter(for: counter.id)
                         }) {
                             Image(systemName: "minus.circle.fill")
                                 .foregroundColor(.red)
@@ -48,5 +45,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
